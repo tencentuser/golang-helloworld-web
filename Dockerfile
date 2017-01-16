@@ -1,4 +1,4 @@
-FROM golang:1.4.2
+FROM docker.oa.com:8080/library/golang:latest
 
 ADD . $GOPATH/src
 
@@ -6,7 +6,7 @@ ADD run.sh /run.sh
 
 RUN chmod +x /run.sh
 
-EXPOSE 8080
+EXPOSE 80
 
 WORKDIR $GOPATH/src
 
