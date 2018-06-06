@@ -23,8 +23,8 @@ func main() {
 		os.Exit(-1)
 	}
 	defer logfile.Close()
-	logger:=log.New(logfile,"INFO:",log.Ldate|log.Ltime|log.Llongfile)
-	logger.Println("hello^^")
+	logger:=log.New(logfile,"DEBUG:",log.Ldate|log.Ltime|log.Llongfile)
+	logger.Println("hello world^^")
 	logger.Println("server begin...")
 
 	http.HandleFunc("/", hello)
