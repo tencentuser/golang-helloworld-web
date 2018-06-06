@@ -4,9 +4,9 @@ import (
 	"fmt"
 	// "html/template"
 	"io"
-	"os"
 	"log"
 	"net/http"
+	"os"
 )
 
 func hello(w http.ResponseWriter, r *http.Request) {
@@ -17,15 +17,15 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	logfile,err := os.OpenFile("/data/log/mylog",os.O_RDWR|os.O_CREATE,0666)
+	logfile, err := os.OpenFile("/data/log/mylog", os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
-		fmt.Printf("%s\r\n",err.Error())
+		fmt.Printf("%s\r\n", err.Error())
 		os.Exit(-1)
 	}
 	defer logfile.Close()
-	logger:=log.New(logfile,"DEBUG:",log.Ldate|log.Ltime|log.Llongfile)
+	logger := log.New(logfile, "DEBUG:", log.Ldate|log.Ltime|log.Llongfile)
 	logger.Println("hello world^^")
-	logger.Println("server begin...")
+	logger.Println("Rest Server begin processing requests...")
 
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
