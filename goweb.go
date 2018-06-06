@@ -31,8 +31,8 @@ func main() {
 	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, r.URL.Path[1:])
 	})
-	err1 := http.ListenAndServe(":80", nil)
-	if err1 != nil {
+	err = http.ListenAndServe(":80", nil)
+	if err != nil {
 		fmt.Println("Listen And Server", err.Error())
 	}
 }
